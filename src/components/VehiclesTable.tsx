@@ -1,7 +1,5 @@
-import { useContext, useState } from "react";
 import { driverTitltes, vehicleTitles } from "../constants/constants";
-import { AppContext } from "../context/AppContext";
-import { IVehicles } from "../interfaces/interfaces";
+import { useVehicleTable } from "../hooks/useVehiclesTable";
 import ModalComponent from "./modal/Modal";
 import ModalDeleteComponent from "./modal/ModalDelete";
 import NoDataTable from "./NoDataTable";
@@ -10,26 +8,21 @@ import RowVehicle from "./RowVehicle";
 import TableOptions from "./TableOptions";
 
 const VehiclesTable = () => {
-  const { state } = useContext(AppContext);
-  const { driverSelected, drivers, vehiclesDriver } = state;
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalDeleteIsOpen, setIsOpenDelete] = useState(false);
-  const [idVehicle, setIdVehicle] = useState("");
-  const [vehicleSelected, setVehicleSelected] =
-    useState<IVehicles | undefined>(undefined);
-
-  const openModalDelete = () => {
-    setIsOpenDelete(true);
-  };
-  const closeModalDelete = () => {
-    setIsOpenDelete(false);
-  };
-  const openModal = () => {
-    setIsOpen(true);
-  };
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const {
+    closeModal,
+    closeModalDelete,
+    driverSelected,
+    drivers,
+    idVehicle,
+    modalDeleteIsOpen,
+    modalIsOpen,
+    openModal,
+    openModalDelete,
+    setIdVehicle,
+    setVehicleSelected,
+    vehicleSelected,
+    vehiclesDriver,
+  } = useVehicleTable();
 
   return (
     <>

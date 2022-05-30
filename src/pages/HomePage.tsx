@@ -14,10 +14,7 @@ const HomePage = () => {
   return (
     <div className="cs__container">
       <Header />
-      <VehiclesTable
-      // driverSelected={driverSelected}
-      // setDriverSelected={setDriverSelected}
-      />
+      <VehiclesTable />
     </div>
   );
 };
