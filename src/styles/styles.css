@@ -1,0 +1,231 @@
+/* Header styles */
+.cs__header {
+    background-color: #F7F7F7;
+    height: 70px;
+    padding: 40px;
+    margin-bottom: 90px;
+}
+
+.cs__header-logo {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.cs__header-logo img {
+    width: 100%;
+}
+
+/* ----- Vehicles Table styles ------ */
+
+.cs__vehiclesTable {
+    padding: 0 40px 80px 40px;
+}
+
+.cs__vehiclesTable table {
+    width: 100%;
+    /* background-color: antiquewhite; */
+    border-spacing: 0;
+    border: 1px solid #8f8f8f;
+}
+
+.cs__vehiclesTable table tr:first-of-type {
+    background-color: #F7F7F7;
+}
+
+.cs__vehiclesTable table th {
+    border-bottom: 1px solid #8f8f8f;
+    border-right: 1px solid #8f8f8f;
+}
+
+.cs__vehiclesTable table td {
+    border-right: 1px solid #8f8f8f;
+    border-bottom: 1px solid #8f8f8f;
+}
+
+.cs__vehiclesTable table th:last-of-type, .cs__vehiclesTable table td:last-of-type {
+    border-right: none;
+}
+
+.cs__vehiclesTable table th, .cs__vehiclesTable table td {
+    text-align: left;
+    padding: 5px 8px;
+
+}
+
+.cs__editicon, .cs__trashicon, .cs__eyeicon {
+    width: 18px;
+}
+
+.cs__editicon path, .cs__eyeicon path {
+    fill: rgb(65, 92, 245);
+}
+
+.cs__editicon:hover path, .cs__eyeicon:hover path {
+    fill: blue;
+}
+
+.cs__trashicon path {
+    fill: rgb(245, 65, 65);
+}
+
+.cs__trashicon:hover path {
+    fill: red;
+}
+
+
+.cs__editicon:hover, .cs__trashicon:hover, .cs__eyeicon:hover {
+    cursor: pointer;
+}
+
+/* ----- NO DATA TABLE STYLES ----- */
+.cs__nodata {
+    text-align: center;
+    border-left: 1px solid #8f8f8f;
+    border-right: 1px solid #8f8f8f;
+    border-bottom: 1px solid #8f8f8f;
+    padding: 10px 0;
+
+}
+
+/* ----- Table Options Styles ----- */
+.cs__backdrivers {
+    display: flex;
+    align-items: center;
+
+}
+
+.cs__backdrivers:hover {
+    cursor: pointer;
+}
+
+.cs__backdrivers img {
+    width: 18px;
+    margin-right: 10px;
+}
+
+.cs__tableOption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    /* padding: 0 40px; */
+}
+
+.cs__createvehicle {
+    border: solid 1px #ef404b;
+    color: #ef404b;
+    padding: 10px 22px;
+    text-align: center;
+    background-color: #fff;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+.cs__createvehicle:hover {
+    background-color: #ef404b;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/* ----- Modal styles ----- */
+
+.cs__modalContainer {
+    position: relative;
+}
+
+.cs__modalContainer>img {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    width: 14px;
+}
+
+.cs__modalContainer>img:hover {
+    cursor: pointer;
+}
+
+.cs__modalContainer h3 {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.cs__modalContainer .cs__modalContainer-form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.cs__modalContainer .cs__modalContainer-form>div {
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+.cs__modalContainer .cs__modalContainer-form>div label {
+    width: 100%;
+}
+
+.cs__modalContainer .cs__modalContainer-form>div input {
+    width: 90%;
+    margin-top: 5px;
+    border: 1px solid #bbbbbb;
+    padding: 8px 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.cs__modalContainer .cs__modalContainer-form>div input:focus {
+    outline: none;
+}
+
+.cs__modal-containerbtn {
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs__modalContainer .cs__modalContainer-form button {
+    width: 50%;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ef404b;
+    color: #ef404b;
+    padding: 8px 0;
+}
+
+.cs__modalContainer .cs__modalContainer-form button:hover {
+    cursor: pointer;
+}
+
+.cs__containererror {
+    width: 100% !important;
+    background-color: #ef404b;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.cs__cancel-btn {
+    border-color: #8f8f8f !important;
+    color: #8f8f8f !important;
+    margin-right: 20px;
+}
+
+.cs__modaldelete-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs__modaldelete-btn button {
+    width: 35% !important;
+}
