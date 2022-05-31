@@ -1,16 +1,18 @@
-import { useContext } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { Idriver, IVehicles } from "../interfaces/interfaces";
 import EyeIcon from "./icons/EyeIcon";
 
 interface IRowDriver {
   e: Idriver;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
-const RowDriver = ({ e }: IRowDriver) => {
+const RowDriver = ({ e, setCurrentPage }: IRowDriver) => {
   const { setInitialState } = useContext(AppContext);
 
   const selectDriver = async () => {
+    setCurrentPage(0);
     setInitialState((prev) => ({
       driverSelected: e,
       drivers: prev.drivers,

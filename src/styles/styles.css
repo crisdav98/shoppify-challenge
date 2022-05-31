@@ -229,3 +229,34 @@
 .cs__modaldelete-btn button {
     width: 35% !important;
 }
+
+/* ---- PAGINATION STYLES ---- */
+.cs__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.cs__pagination-btn {
+    padding: 10px 30px;
+    color: #fff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.cs__pagination-btn:hover {
+    cursor: pointer;
+}
+
+.cs__btnPrevious {
+    margin-right: 20px;
+    background-color: rgb(57, 70, 255);
+}
+
+.cs__btnNext {
+    background-color: #ef404b;
+}

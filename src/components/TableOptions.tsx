@@ -6,23 +6,27 @@ import { IVehicles } from "../interfaces/interfaces";
 interface ITableOptions {
   openModal: () => void;
   setVehicleSelected: Dispatch<SetStateAction<IVehicles | undefined>>;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
-const TableOptions = ({ openModal, setVehicleSelected }: ITableOptions) => {
+const TableOptions = ({
+  openModal,
+  setVehicleSelected,
+  setCurrentPage,
+}: ITableOptions) => {
   const { setInitialState } = useContext(AppContext);
 
+  const backAction = () => {
+    setInitialState((prev) => ({
+      driverSelected: undefined,
+      drivers: prev.drivers,
+      vehicles: prev.vehicles,
+    }));
+    setCurrentPage(0);
+  };
   return (
     <div className="cs__tableOption">
-      <div
-        onClick={() =>
-          setInitialState((prev) => ({
-            driverSelected: undefined,
-            drivers: prev.drivers,
-            vehicles: prev.vehicles,
-          }))
-        }
-        className="cs__backdrivers"
-      >
+      <div onClick={backAction} className="cs__backdrivers">
         <img src={backIcon} alt="Back" />
         Back to the drivers
       </div>

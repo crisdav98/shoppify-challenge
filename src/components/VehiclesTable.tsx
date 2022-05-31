@@ -3,25 +3,30 @@ import { useVehicleTable } from "../hooks/useVehiclesTable";
 import ModalComponent from "./modal/Modal";
 import ModalDeleteComponent from "./modal/ModalDelete";
 import NoDataTable from "./NoDataTable";
+import Pagination from "./Pagination";
 import RowDriver from "./RowDriver";
 import RowVehicle from "./RowVehicle";
 import TableOptions from "./TableOptions";
 
 const VehiclesTable = () => {
   const {
-    closeModal,
-    closeModalDelete,
     driverSelected,
     drivers,
     idVehicle,
     modalDeleteIsOpen,
     modalIsOpen,
+    vehicleSelected,
+    vehiclesDriver,
+    currentPage,
+    closeModal,
+    closeModalDelete,
     openModal,
     openModalDelete,
     setIdVehicle,
     setVehicleSelected,
-    vehicleSelected,
-    vehiclesDriver,
+    filteredDrivers,
+    setCurrentPage,
+    filteredVehicles,
   } = useVehicleTable();
 
   return (
@@ -31,6 +36,7 @@ const VehiclesTable = () => {
           <TableOptions
             setVehicleSelected={setVehicleSelected}
             openModal={openModal}
+            setCurrentPage={setCurrentPage}
           />
         )}
 
@@ -42,8 +48,10 @@ const VehiclesTable = () => {
                 : vehicleTitles.map((e) => <th key={e}>{e}</th>)}
             </tr>
             {!driverSelected
-              ? drivers?.map((e) => <RowDriver e={e} key={e.id} />)
-              : vehiclesDriver?.map((vehicle) => (
+              ? filteredDrivers().map((e) => (
+                  <RowDriver e={e} setCurrentPage={setCurrentPage} key={e.id} />
+                ))
+              : filteredVehicles().map((vehicle) => (
                   <RowVehicle
                     vehicle={vehicle}
                     setVehicleSelected={setVehicleSelected}
@@ -55,11 +63,17 @@ const VehiclesTable = () => {
                 ))}
           </tbody>
         </table>
+
         {!drivers ||
           (drivers!.length === 0 && <NoDataTable isDataDriver={true} />)}
         {driverSelected && vehiclesDriver!.length === 0 && (
           <NoDataTable isDataDriver={false} />
         )}
+        <Pagination
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          drivers={drivers ?? []}
+        />
       </div>
 
       {modalIsOpen ? (

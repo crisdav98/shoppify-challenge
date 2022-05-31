@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
-import { IVehicles } from "../interfaces/interfaces";
+import { Idriver, IVehicles } from "../interfaces/interfaces";
 
 export const useVehicleTable = () => {
     const { state } = useContext(AppContext);
@@ -8,6 +8,7 @@ export const useVehicleTable = () => {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [modalDeleteIsOpen, setIsOpenDelete] = useState(false);
     const [idVehicle, setIdVehicle] = useState("");
+    const [currentPage, setCurrentPage] = useState(0);
     const [vehicleSelected, setVehicleSelected] =
         useState<IVehicles | undefined>(undefined);
 
@@ -23,6 +24,14 @@ export const useVehicleTable = () => {
     const closeModal = () => {
         setIsOpen(false);
     };
+    const filteredDrivers = (): Idriver[] => {
+        return drivers ? drivers?.slice(currentPage, currentPage + 10) : [];
+    }
+    const filteredVehicles = (): IVehicles[] => {
+        return vehiclesDriver ? vehiclesDriver?.slice(currentPage, currentPage + 10) : [];
+    }
+
+
     return {
         driverSelected,
         drivers,
@@ -31,12 +40,15 @@ export const useVehicleTable = () => {
         modalDeleteIsOpen,
         idVehicle,
         vehicleSelected,
+        currentPage,
+        setCurrentPage,
         setIdVehicle,
         setVehicleSelected,
         openModalDelete,
         closeModalDelete,
         openModal,
-        closeModal
-
+        closeModal,
+        filteredDrivers,
+        filteredVehicles
     }
 }
